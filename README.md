@@ -8,4 +8,4 @@ The easiest way to view the illusion is to simply open the index.html file in yo
 
 **Below is a preview (GIF), you can use Chrome, Safari or whichever browser you prefer:**
 
-<img src="./images/matrix.gif" width=450>
+<img src="./images/matrix.gif" width=850>
