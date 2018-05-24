@@ -1,5 +1,5 @@
 # green-matrix-rain
-A recreation/simulation of the digital rain scene from The Matrix (movie)
+A recreating/simulation of the digital rain scene from The Matrix (movie)
 
 *Inspired by "The Matrix" and "TheCodingTrain".*
 
