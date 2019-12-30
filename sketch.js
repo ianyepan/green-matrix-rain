@@ -2,13 +2,10 @@ var symbolSize = 20;
 var streams = [];
 
 function setup() {
-  createCanvas(
-    window.innerWidth,
-    window.innerHeight
-  );
-  background(0)
+  createCanvas(window.innerWidth, window.innerHeight);
+  background(0);
   var x = 0;
-  for (var i = 0; i <= width/symbolSize; i++) {
+  for (var i = 0; i <= width / symbolSize; i++) {
     var stream = new Stream();
     stream.generateSymbols(x, random(-1000, 0));
     streams.push(stream);
@@ -37,17 +34,19 @@ function Symbol(x, y, speed, first) {
     if (frameCount % this.switchInterval == 0) {
       this.value = String.fromCharCode(
         // random Katakana character
-        0x30A0 + round(random(0, 96))
+        0x30a0 + round(random(0, 96))
       );
     }
-  }
+  };
 
   this.rain = function() {
-    if(this.y >= height)  // reached the bottom
+    if (this.y >= height) {
+      // reached the bottom
       this.y = 0;
-    else
+    } else {
       this.y += this.speed;
-  }
+    }
+  };
 }
 
 function Stream() {
@@ -57,23 +56,24 @@ function Stream() {
 
   this.generateSymbols = function(x, y) {
     var first = round(random(0, 3)) == 1;
-    for(var i = 0; i <= this.totalSymbols ; i++) {
+    for (var i = 0; i <= this.totalSymbols; i++) {
       symbol = new Symbol(x, y, this.speed);
       this.symbols.push(symbol);
       y -= symbolSize;
       first = false;
     }
-  }
+  };
 
   this.render = function() {
     this.symbols.forEach(function(symbol) {
-      if (symbol.first)
+      if (symbol.first) {
         fill(180, 25, 180);
-      else
+      } else {
         fill(0, 255, 140);
+      }
       text(symbol.value, symbol.x, symbol.y);
       symbol.rain();
       symbol.setToRandomSymbol();
     });
-  }
+  };
 }
